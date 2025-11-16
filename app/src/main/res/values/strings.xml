@@ -1,3 +1,59 @@
 <resources>
-    <string name="app_name">PosibleExamen</string>
+    <string name="app_name">Cafetera</string>
+    <string name="descafeinado">Descafeinado:</string>
+    <array name="tipoCafe">
+        <item>Solo</item>
+        <item>Cortado</item>
+        <item>Con Leche</item>
+        <item>Bombón</item>
+    </array>
+
+
+    <string name="solo">Solo</string>
+    <string name="cortado">Cortado</string>
+    <string name="conLeche">Con Leche</string>
+    <string name="bombon">Bombón</string>
+
+    <string name="estado">Estado de la carta:</string>
+
+    <array name="lista">
+        <item>Charmander</item>
+        <item>Squirtle</item>
+        <item>Bulbasur</item>
+    </array>
+
+    <array name="estadoCarta">
+        <item>Como nuevo</item>
+        <item>Usado</item>
+        <item>Destrozado</item>
+    </array>
+
+
+    <string name="charmander">Charmander</string>
+    <string name="squirtle">Squirtle</string>
+    <string name="bulbasur">Bulbasur</string>
+    <string name="pikachu">Pikachu</string>
+
+
+    <string name="titulo">Pedido pizza</string>
+    <string name="total">Total: </string>
+    <string-array name="ingredientes">
+        <item>Chorizo</item>
+        <item>Salchicha</item>
+        <item>Pollo</item>
+    </string-array>
+
+    <string-array name="opciones">
+        <item>Ejercicio1</item>
+        <item>Ejercicio2</item>
+    </string-array>
+
+    <string name="ejercicios">Ejercicios</string>
+
+    <string name="tituloEjercicio2">Ejercicio 2</string>
+
+    <string name="games_label">Games</string>
+
+    <string name="nombre">Introduce tu nombre</string>
+    <string name="tipoSaludo">Saludo formal</string>
 </resources>
