@@ -54,7 +54,7 @@ fun MainCafetera(){
     var descafeinado by remember { mutableStateOf(false) }
 
     //FAB
-    val tipoMensaje = mostrarMensaje(tipoSeleccionado, descafeinado)
+    val tipoMensaje = mostrarMensaje(tipoSeleccionado, descafeinado, azucarSeleccionado)
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
 
@@ -145,7 +145,8 @@ fun Descafeinado(
 
 fun mostrarMensaje(
     nombreCafe: String,
-    descafeinado: Boolean
+    descafeinado: Boolean,
+    azucar: String
 ): String{
 
     var mensaje = ""
@@ -153,9 +154,9 @@ fun mostrarMensaje(
     if (nombreCafe.isBlank()){
         mensaje = "Por favor, selecciona un café antes de continuar."
     }else if (!descafeinado){
-        mensaje = "Preparando $nombreCafe con cafeína..."
+        mensaje = "Preparando $nombreCafe con cafeína y $azucar azúcar..."
     } else if (descafeinado){
-        mensaje = "Preparando $nombreCafe descafeinado..."
+        mensaje = "Preparando $nombreCafe descafeinado y $azucar azúcar..."
     }
 
     return mensaje

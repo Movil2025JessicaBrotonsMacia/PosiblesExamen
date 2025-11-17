@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
@@ -19,20 +20,22 @@ fun CantidadAzucar(
     onOptionSelected: (String) -> Unit,
     modifier: Modifier = Modifier
 ){
-    Column(modifier = modifier.padding(8.dp)
+    Column(modifier = modifier.padding(10.dp)
     ) {
         Text(
             text = "Cantidad de azúcar",
             fontWeight = FontWeight.Bold,
             fontSize = 18.sp,
-            modifier = Modifier.padding(5.dp)
+            modifier = Modifier.padding(start = 50.dp),
+            textAlign = TextAlign.Center
         )
 
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.padding(vertical = 1.dp)
+        ) {
         listaOpciones.forEach { opcion ->
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.padding(vertical = 1.dp)
-            ) {
+
                 RadioButton(
                     selected = opcion == opcionSeleccionada,
                     onClick = { onOptionSelected(opcion) }
