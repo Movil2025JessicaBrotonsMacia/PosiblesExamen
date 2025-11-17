@@ -1,4 +1,4 @@
-package net.iessochoa.jessicabrotons.cafeteraradio.ui.components
+package cafeteraradio.ui.components
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -12,19 +12,17 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-
 @Composable
-fun TipoCafe(
+fun CantidadAzucar(
     listaOpciones: List<String>,
-    tipoSeleccionado: String,
+    opcionSeleccionada: String,
     onOptionSelected: (String) -> Unit,
     modifier: Modifier = Modifier
-) {
-    Column(modifier = modifier
-        .padding(top = 10.dp)) {
-
+){
+    Column(modifier = modifier.padding(8.dp)
+    ) {
         Text(
-            text = "Tipo de café",
+            text = "Cantidad de azúcar",
             fontWeight = FontWeight.Bold,
             fontSize = 18.sp,
             modifier = Modifier.padding(5.dp)
@@ -36,7 +34,7 @@ fun TipoCafe(
                 modifier = Modifier.padding(vertical = 1.dp)
             ) {
                 RadioButton(
-                    selected = opcion == tipoSeleccionado,
+                    selected = opcion == opcionSeleccionada,
                     onClick = { onOptionSelected(opcion) }
                 )
                 Text(
@@ -46,4 +44,5 @@ fun TipoCafe(
             }
         }
     }
+
 }

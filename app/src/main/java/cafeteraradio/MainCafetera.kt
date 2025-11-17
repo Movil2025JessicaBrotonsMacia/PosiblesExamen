@@ -34,6 +34,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import cafeteraradio.ui.components.CantidadAzucar
 import kotlinx.coroutines.launch
 
 import net.iessochoa.jessicabrotons.posibleexamen.R
@@ -42,12 +43,18 @@ import net.iessochoa.jessicabrotons.posibleexamen.R
 @Composable
 fun MainCafetera(){
 
+    //RADIOBUTTON
     val listaOpciones = stringArrayResource(R.array.tipoCafe).toList()
     var tipoSeleccionado by remember { mutableStateOf(listaOpciones[0]) }
 
-    var descafeinado by remember { mutableStateOf(false) }
-    val tipoMensaje = mostrarMensaje(tipoSeleccionado, descafeinado)
+    val listaAzucar = stringArrayResource(R.array.cantidadAzucar).toList()
+    var azucarSeleccionado by remember { mutableStateOf(listaAzucar[0]) }
 
+    //SWITCH
+    var descafeinado by remember { mutableStateOf(false) }
+
+    //FAB
+    val tipoMensaje = mostrarMensaje(tipoSeleccionado, descafeinado)
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
 
@@ -69,19 +76,24 @@ fun MainCafetera(){
         }
     ) { innerPadding ->
 
-        Column(
+        Column( //Centrar toda la columna al centro
             modifier = Modifier
                 .padding(innerPadding)
                 .fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             MostrarTitulo()
-            TipoCafe(
+            TipoCafe( //RadioButton
                 listaOpciones = listaOpciones,
                 tipoSeleccionado = tipoSeleccionado,
                 onOptionSelected = { tipoSeleccionado = it }
             )
-            Descafeinado(
+            CantidadAzucar(
+                listaOpciones = listaAzucar,
+                opcionSeleccionada = azucarSeleccionado,
+                onOptionSelected = {azucarSeleccionado = it}
+            )
+            Descafeinado( //Switch
                 descafeinado = descafeinado,
                 onDescafeinadoChanged = {descafeinado = it},
                 modifier = Modifier
@@ -106,6 +118,7 @@ fun MostrarTitulo(){
     )
 }
 
+//SWITCH
 @Composable
 fun Descafeinado(
     descafeinado: Boolean,
@@ -124,13 +137,13 @@ fun Descafeinado(
             modifier = Modifier
                 .fillMaxWidth()
                 .wrapContentWidth(Alignment.End),
-            checked = descafeinado,
+            checked = descafeinado, //true o false
             onCheckedChange = onDescafeinadoChanged,
         )
     }
 }
 
-private fun mostrarMensaje(
+fun mostrarMensaje(
     nombreCafe: String,
     descafeinado: Boolean
 ): String{

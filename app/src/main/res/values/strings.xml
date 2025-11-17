@@ -8,6 +8,12 @@
         <item>Bombón</item>
     </array>
 
+    <array name="cantidadAzucar">
+        <item>Nada</item>
+        <item>Poca</item>
+        <item>Mucha</item>
+    </array>
+
 
     <string name="solo">Solo</string>
     <string name="cortado">Cortado</string>
