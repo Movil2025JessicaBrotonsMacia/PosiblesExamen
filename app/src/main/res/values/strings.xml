@@ -69,4 +69,16 @@
 
     <string name="nombre">Introduce tu nombre</string>
     <string name="tipoSaludo">Saludo formal</string>
+
+
+    <string name="num1">Número 1</string>
+    <string name="num2">Número 2</string>
+    <string name="resultado">Resultado:</string>
+
+    <string-array name="operations">
+        <item>SUMA</item>
+        <item>RESTA</item>
+        <item>MULT</item>
+        <item>DIV</item>
+    </string-array>
 </resources>
