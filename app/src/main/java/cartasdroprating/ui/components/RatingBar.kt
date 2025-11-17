@@ -15,7 +15,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 
 @Composable
 fun RatingBar(
-    maxRating: Int = 5,
+    maxRating: Int = 3,
     currentRating: Int,
     onRatingChanged: (Int) -> Unit,
     iconSelect: ImageVector = Icons.Filled.Star,

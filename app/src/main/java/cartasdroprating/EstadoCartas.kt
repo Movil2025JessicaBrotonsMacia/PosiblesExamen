@@ -54,7 +54,7 @@ fun MostrarEjercicio(){
             FloatingActionButton(onClick = {
                 scope.launch {
                     snackbarHostState.showSnackbar(
-                        message = "${opcionSeleccionada} añadida a favoritos"
+                        message = mostrarMensaje(opcionSeleccionada, rating)
                     )
                 }
             }) {
@@ -109,6 +109,21 @@ fun MostrarTitulo(modifier: Modifier = Modifier){
 
     )
 }
+private fun mostrarMensaje(
+    nombreCarta: String,
+    estado: Int
+): String {
+
+    return when (estado) {
+        0 -> "Selecciona un número de estrellas"
+        1 -> "$nombreCarta calificada como destrozada"
+        2 -> "$nombreCarta calificada como usada"
+        3 -> "$nombreCarta calificada como nueva"
+        else -> "Estado inválido"
+    }
+}
+
+
 
 
 @Preview(showBackground = true, showSystemUi = true)

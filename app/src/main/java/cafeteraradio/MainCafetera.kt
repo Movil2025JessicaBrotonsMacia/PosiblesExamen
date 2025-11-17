@@ -132,7 +132,8 @@ fun Descafeinado(
             .padding(horizontal = 120.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Text(text = stringResource(R.string.descafeinado))
+        Text(text = if (descafeinado) {stringResource(R.string.descafeinado)}
+                    else{stringResource(R.string.concafeína)} )
         Switch(
             modifier = Modifier
                 .fillMaxWidth()

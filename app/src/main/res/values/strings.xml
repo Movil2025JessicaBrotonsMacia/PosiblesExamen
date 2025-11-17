@@ -1,11 +1,18 @@
 <resources>
     <string name="app_name">Cafetera</string>
-    <string name="descafeinado">Descafeinado:</string>
+    <string name="descafeinado">Descafeinado</string>
+    <string name="concafeína">Con cafeína</string>
     <array name="tipoCafe">
         <item>Solo</item>
         <item>Cortado</item>
         <item>Con Leche</item>
         <item>Bombón</item>
+    </array>
+
+    <array name="estado">
+        <item>Destrozada</item>
+        <item>Usada</item>
+        <item>Nueva</item>
     </array>
 
     <array name="cantidadAzucar">
