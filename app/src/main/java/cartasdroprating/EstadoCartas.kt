@@ -78,7 +78,10 @@ fun MostrarEjercicio(){
 
             DropDown(
                 selected = opcionSeleccionada,
-                onSelected = { opcion -> opcionSeleccionada = opcion }
+                onSelected = { opcion ->
+                    opcionSeleccionada = opcion
+                    rating = 0
+                }
             )
 
             Card(carta)
