@@ -43,6 +43,12 @@ import net.iessochoa.jessicabrotons.posibleexamen.R
 @Composable
 fun MainCafetera(){
 
+//    val (text, setText) = remember { mutableStateOf("") }
+//    TextField(
+//        value = text,
+//        onValueChange = setText // Limpio y directo
+//    )
+
     //RADIOBUTTON
     val listaOpciones = stringArrayResource(R.array.tipoCafe).toList()
     var tipoSeleccionado by remember { mutableStateOf(listaOpciones[0]) }

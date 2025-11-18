@@ -57,13 +57,13 @@ fun MainCafetera(){
 
 
     val layoutDirection = LocalLayoutDirection.current
-    val listaOpciones = stringArrayResource(R.array.tipoCafe).toList()
-    var tipoSeleccionado by remember { mutableStateOf(listaOpciones[0]) }
     val listaCafes = ListaCafes().loadListaCafes()
-    var tipoMensaje = ""
+
+    var cafeSeleccionado by remember { mutableStateOf<Cafes?>(null) }
 
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
+
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
@@ -71,9 +71,20 @@ fun MainCafetera(){
         floatingActionButton = {
             FloatingActionButton(onClick = {
                 scope.launch {
-                    // Muestra el mensaje en el Snackbar
+
+                    val mensaje = if (cafeSeleccionado == null) {
+                        "Por favor, selecciona un café antes de continuar."
+                    } else {
+                        // Si ya has actualizado tu data class, esto NO será null
+                        if (cafeSeleccionado!!.tipo == "Normal") {
+                            "Preparando ${cafeSeleccionado!!.nombre} con cafeína..."
+                        } else {
+                            "Preparando ${cafeSeleccionado!!.nombre} descafeinado..."
+                        }
+                    }
+
                     snackbarHostState.showSnackbar(
-                        message = tipoMensaje,
+                        message = mensaje,
                         duration = SnackbarDuration.Short
                     )
                 }
@@ -81,6 +92,7 @@ fun MainCafetera(){
                 Icon(Icons.Filled.Add, contentDescription = "Mostrar Snackbar")
             }
         }
+
     ) { innerPadding ->
         Column(
             modifier = Modifier
@@ -107,9 +119,12 @@ fun MainCafetera(){
                 items(listaCafes) { cafe ->
                     AffirmationsCard(
                         affirmation = cafe,
+                        cafeSeleccionado = cafeSeleccionado,
+                        onSeleccionar = { cafeSeleccionado = it },
                         modifier = Modifier.padding(8.dp)
                     )
                 }
+
             }
         }
 
@@ -129,40 +144,20 @@ fun MostrarTitulo(){
         fontSize = 20.sp
     )
 }
-
-
-private fun mostrarMensaje(
-    nombreCafe: String,
-    descafeinado: Boolean
-): String{
-
-    var mensaje = ""
-
-    if (nombreCafe.isBlank()){
-        mensaje = "Por favor, selecciona un café antes de continuar."
-    }else if (!descafeinado){
-        mensaje = "Preparando $nombreCafe con cafeína..."
-    } else if (descafeinado){
-        mensaje = "Preparando $nombreCafe descafeinado..."
-    }
-
-    return mensaje
-}
-
 @Composable
 fun AffirmationsCard(
     affirmation: Cafes,
+    cafeSeleccionado: Cafes?,
+    onSeleccionar: (Cafes) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    var tipoSeleccionado by remember { mutableStateOf(affirmation.tipo) }
-
     Card(modifier = modifier) {
         Column {
 
             // Imagen
             Image(
                 painter = painterResource(affirmation.imagen),
-                contentDescription = stringResource(affirmation.nombre),
+                contentDescription = affirmation.nombre,   // ← AHORA CORRECTO
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(194.dp),
@@ -171,28 +166,29 @@ fun AffirmationsCard(
 
             // Nombre del café
             Text(
-                text = LocalContext.current.getString(affirmation.nombre),
+                text = affirmation.nombre,                // ← AHORA CORRECTO
                 modifier = Modifier.padding(16.dp),
                 style = MaterialTheme.typography.headlineSmall
             )
 
-            // ---- AQUÍ VA EL RADIOBUTTON DENTRO DE LA TARJETA ----
+            // RadioButton Normal / Descafeinado
             Column(modifier = Modifier.padding(16.dp)) {
 
                 val opciones = listOf("Normal", "Descafeinado")
 
                 opciones.forEach { opcion ->
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier.padding(vertical = 4.dp)
-                    ) {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+
                         RadioButton(
-                            selected = opcion == tipoSeleccionado,
+                            selected = cafeSeleccionado?.nombre == affirmation.nombre &&
+                                    affirmation.tipoState == opcion,
+
                             onClick = {
-                                tipoSeleccionado = opcion
-                                affirmation.tipo = opcion
+                                affirmation.tipoState = opcion
+                                onSeleccionar(affirmation)
                             }
                         )
+
 
                         Text(
                             text = opcion,
@@ -204,6 +200,8 @@ fun AffirmationsCard(
         }
     }
 }
+
+
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
