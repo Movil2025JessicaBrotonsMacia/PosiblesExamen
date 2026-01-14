@@ -1,4 +1,5 @@
 <resources>
+    <!--EXAMEN 1-->
     <string name="app_name">Cafetera</string>
     <string name="descafeinado">Descafeinado</string>
     <string name="concafeína">Con cafeína</string>
@@ -81,4 +82,77 @@
         <item>MULT</item>
         <item>DIV</item>
     </string-array>
+
+
+    <!--EXAMEN 2-->
+    <string name="app_namecupcake">Cupcake</string>
+    <string name="order_cupcakes">Order Cupcakes</string>
+    <string name="one_cupcake">One Cupcake</string>
+    <string name="six_cupcakes">Six Cupcakes</string>
+    <string name="twelve_cupcakes">Twelve Cupcakes</string>
+    <string name="choose_flavor">Choose Flavor</string>
+    <string name="vanilla">Vanilla</string>
+    <string name="chocolate">Chocolate</string>
+    <string name="red_velvet">Red Velvet</string>
+    <string name="salted_caramel">Salted Caramel</string>
+    <string name="coffee">Coffee</string>
+    <string name="special_flavor">Special Flavor</string>
+    <string name="cancel">Cancel</string>
+    <string name="next">Next</string>
+    <string name="choose_pickup_date">Choose Pickup Date</string>
+    <string name="order_summary">Order Summary</string>
+    <string name="send">Send Order to Another App</string>
+    <string name="quantity">Quantity</string>
+    <string name="flavor">Flavor</string>
+    <string name="pickup_date">Pickup date</string>
+    <string name="subtotal_price">Subtotal %s</string>
+    <string name="total_price">Total %s</string>
+    <string name="new_cupcake_order">New Cupcake Order</string>
+    <string name="order_details">Quantity: %1$s \nFlavor: %2$s \nPickup date: %3$s \nTotal: %4$s \n\nThank you!</string>
+    <string name="back_button">Back</string>
+    <plurals name="cupcakes">
+        <item quantity="one">%d cupcake</item>
+        <item quantity="other">%d cupcakes</item>
+    </plurals>
+
+
+
+    <string name="app_name_doctorround">Ronda Médica Temeria</string>
+    <string name="title_patient_detail">Ficha Paciente</string>
+
+
+    <string name="app_name_dog">TheDogWalker</string>
+    <string name="dog_detail">Detalle de </string>
+
+
+    <string name="app_name_kebab">Kebab LaJessy</string>
+    <string name="realizar_pedido">Realizar Pedido</string>
+    <string name="ver_pedido">Ver Pedidos</string>
+    <string name="label_producto">Selecciona el producto:</string>
+    <string name="label_salsa">Selecciona las salsas:</string>
+    <string name="label_switch">¿Pedido a domicilio?:</string>
+
+
+    <string name="main_screen">Bienvenido a KebabKiosk</string>
+    <string name="order_screen">Realizar pedido</string>
+    <string name="list_screen">Listar pedidos realizados</string>
+    <string name="list_showOrder">Editar pedido</string>
+
+    <array name="salsas">
+        <item>Sin salsa</item>
+        <item>Salsa Blanca</item>
+        <item>Salsa Roja</item>
+        <item>Roja y Blanca</item>
+    </array>
+
+
+    <string name="app_name_coffee">CoffeeMachine</string>
+    <string name="importe">Importe introducido</string>
+    <string name="esperando">Esperando pedido...</string>
+    <string name="disfruta_cafe">¡Disfrute su café!</string>
+    <string name="cafe_servido">¡Café servido!</string>
+    <string name="cambio">No olvide recoger su cambio: %.2f €</string>
+    <string name="importe_euro">Importe introducido en €</string>
+
+    <string name="order_detail">Detalle del pedido</string>
 </resources>
