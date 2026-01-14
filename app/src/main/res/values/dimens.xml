@@ -23,4 +23,6 @@
     <dimen name="common_padding_default">16dp</dimen>
     <dimen name="common_padding_middle">24dp</dimen>
     <dimen name="common_padding_large">32dp</dimen>
+
+    <dimen name="image_size">150dp</dimen>
 </resources>

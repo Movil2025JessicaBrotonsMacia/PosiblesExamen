@@ -12,6 +12,27 @@ import net.iessochoa.jessicabrotons.clientekebab.ui.screens.OrderScreen
 import net.iessochoa.jessicabrotons.clientekebab.ui.screens.ResumeScreen
 import kotlin.math.max
 
+/*
+El truquito este para las alternativas es genial...
+
+            composable(route = CupcakeScreen.Flavor.name) {
+                val context = LocalContext.current
+                SelectOptionScreen(
+                    subtotal = uiState.price,
+                    options = DataSource.flavors.map { id -> context.resources.getString(id) }
+                )
+
+            }
+Esto además hay que tener en cuenta que los enums y recursos string.xml están enganchados.
+
+enum class CupcakeScreen(@StringRes val title: Int) {
+    Start(title = R.string.app_name),
+    Flavor(title = R.string.choose_flavor),
+    Pickup(title = R.string.choose_pickup_date),
+    Summary(title = R.string.order_summary)
+}
+ */
+
 @Composable
 fun KebabNavHost(
     navController: NavHostController,

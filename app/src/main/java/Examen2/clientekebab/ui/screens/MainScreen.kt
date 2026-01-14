@@ -24,6 +24,10 @@ import net.iessochoa.jessicabrotons.clientekebab.ui.ClienteKebabViewModel
 import net.iessochoa.jessicabrotons.clientekebab.ui.theme.ClienteKebabTheme
 import net.iessochoa.jessicabrotons.posibleexamen.R
 
+/*
+Aquí si mostrara Text("Pedidos realizados: ${uiState.orders.size}")
+sí que necesitaria hacer un viewmodel
+ */
 @Composable
 fun MainScreen(
     onGoToOrderScreen: () -> Unit,
